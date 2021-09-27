@@ -153,10 +153,11 @@ for (i in 1:n_encuestados){
 
   
   # Se quita el precio de relative_importance_user ya que no debemos realizar el analisis con ese atributo
+  atributos_usuarios = c("Pantalla", "Almacenamiento", "Procesador", "Memoria")
   relative_importance_user = c(cellPantalla_importance, cellAlmacenamiento_importance, cellProcesador_importance, cellMemoria_importance)
   # Capturamos el atributo mas importante del current user del loop y el valor
   most_important_attribute_value = relative_importance_user[which.max(relative_importance_user)]
-  most_important_attribute = attributes[which.max(relative_importance_user)]
+  most_important_attribute = atributos_usuarios[which.max(relative_importance_user)]
   
   cell <- subset(pw_ut_df_tmp, pw_ut_df_tmp$Variable == most_important_attribute)
   cell_max_ut <- max(cell$pw_ut_tmp)
